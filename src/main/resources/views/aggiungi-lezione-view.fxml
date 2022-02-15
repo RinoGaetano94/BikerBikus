@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" style="-fx-background-color: #d2f2cd;"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox alignment="CENTER" maxHeight="60" minHeight="60"
+			spacing="8" style="-fx-padding: 8px; -fx-background-color: #95CA74;">
+			<children>
+				<Button fx:id="btnBack"
+					style="-fx-cursor: hand; -fx-background-color: transparent;">
+					<tooltip>
+						<Tooltip text="Lezioni" />
+					</tooltip>
+					<graphic>
+						<ImageView fitHeight="50.0" preserveRatio="true">
+							<Image url="@../images/back.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+				<Label text="Aggiungi Lezione">
+					<font>
+						<Font size="34.0" />
+					</font>
+				</Label>
+				<HBox maxWidth="Infinity" alignment="CENTER_LEFT"
+					style="-fx-background-radius: 4; -fx-padding: 0 4; -fx-background-color: #6aaf3f;"
+					HBox.hgrow="ALWAYS">
+					<Label style="-fx-padding: 0 16 0 0;" fx:id="lblUserName">
+						<font>
+							<Font size="34" />
+						</font>
+					</Label>
+					<Label
+						style="-fx-background-radius: 4; -fx-padding: 0 8; -fx-background-color: #d8da94;"
+						fx:id="lblTipoUtente">
+						<font>
+							<Font size="16" />
+						</font>
+					</Label>
+				</HBox>
+			</children>
+		</HBox>
+		<VBox VBox.vgrow="ALWAYS" spacing="8">
+			<children>
+				<HBox style="-fx-padding: 16;" alignment="CENTER">
+					<VBox>
+						<GridPane vgap="8" hgap="8">
+							<Text text="Inserisci i dati" GridPane.columnIndex="0"
+								GridPane.rowIndex="0" GridPane.columnSpan="2">
+								<font>
+									<Font size="34" />
+								</font>
+							</Text>
+							<Label style="-fx-font-weight: bold" text="Giorno:"
+								GridPane.columnIndex="0" GridPane.rowIndex="1">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<DatePicker maxWidth="Infinity" fx:id="dpGiorno" GridPane.columnIndex="1"
+								GridPane.rowIndex="1" />
+							<Label style="-fx-font-weight: bold" text="Orario:"
+								GridPane.columnIndex="0" GridPane.rowIndex="2">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<ComboBox maxWidth="Infinity" fx:id="cmbOrario" GridPane.columnIndex="1"
+								GridPane.rowIndex="2" />
+							<Label style="-fx-font-weight: bold" text="Tipo:"
+								GridPane.columnIndex="0" GridPane.rowIndex="3">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<ComboBox maxWidth="Infinity" fx:id="cmbTipo" GridPane.columnIndex="1"
+								GridPane.rowIndex="3" />
+							<Label style="-fx-font-weight: bold" text="Privata:"
+								GridPane.columnIndex="0" GridPane.rowIndex="4">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<CheckBox fx:id="cbPrivata" GridPane.columnIndex="1"
+								GridPane.rowIndex="4" />
+							<Label style="-fx-font-weight: bold" text="Maestro:"
+								GridPane.columnIndex="0" GridPane.rowIndex="5">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<ComboBox maxWidth="Infinity" fx:id="cmbMaestro" GridPane.columnIndex="1"
+								GridPane.rowIndex="5" />
+							<Button maxWidth="Infinity" fx:id="btnConferma"
+								text="Conferma" GridPane.columnIndex="0" GridPane.rowIndex="6"
+								GridPane.columnSpan="2" />
+						</GridPane>
+					</VBox>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</VBox>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" style="-fx-background-color: #d2f2cd;"
+	xmlns="http://javafx.com/javafx/11.0.2"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox alignment="CENTER" maxHeight="60" minHeight="60"
+			spacing="8" style="-fx-padding: 8px; -fx-background-color: #95CA74;">
+			<children>
+				<Button fx:id="btnBack"
+					style="-fx-cursor: hand; -fx-background-color: transparent;">
+					<tooltip>
+						<Tooltip text="Home" />
+					</tooltip>
+					<graphic>
+						<ImageView fitHeight="50.0" preserveRatio="true">
+							<Image url="@../images/home.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+				<Label text="Stagione">
+					<font>
+						<Font size="34.0" />
+					</font>
+				</Label>
+				<HBox  maxWidth="Infinity" alignment="CENTER_LEFT"
+					style="-fx-background-radius: 4; -fx-padding: 0 4; -fx-background-color: #6aaf3f;" HBox.hgrow="ALWAYS">
+					<Label style="-fx-padding: 0 16 0 0;" fx:id="lblUserName">
+						<font>
+							<Font size="34" />
+						</font>
+					</Label>
+					<Label style="-fx-background-radius: 4; -fx-padding: 0 8; -fx-background-color: #d8da94;" fx:id="lblTipoUtente">
+						<font>
+							<Font size="16" />
+						</font>
+					</Label>
+				</HBox>
+				<Button fx:id="btnProfile"
+					style="-fx-cursor: hand; -fx-background-color: transparent;">
+					<tooltip>
+						<Tooltip text="Area Personale" />
+					</tooltip>
+					<graphic>
+						<ImageView fitHeight="50.0" preserveRatio="true">
+							<Image url="@../images/profile.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+			</children>
+		</HBox>
+		<HBox alignment="CENTER" maxHeight="60" minHeight="60"
+			style="-fx-background-color: #d8da94;">
+			<children>
+				<StackPane alignment="CENTER" HBox.hgrow="ALWAYS">
+					<Label fx:id="lblNome">
+						<font>
+							<Font size="34.0" />
+						</font>
+					</Label>
+				</StackPane>
+			</children>
+		</HBox>
+		<VBox spacing="8" VBox.vgrow="ALWAYS">
+			<children>
+				<HBox alignment="CENTER" VBox.vgrow="ALWAYS" spacing="32">
+					<StackPane alignment="CENTER" HBox.hgrow="ALWAYS">
+						<VBox style="-fx-padding: 16;" VBox.vgrow="ALWAYS">
+							<children>
+								<StackPane alignment="CENTER" HBox.hgrow="ALWAYS">
+									<Label text="CLASSIFICA">
+										<font>
+											<Font size="34.0" />
+										</font>
+									</Label>
+								</StackPane>
+								<TableView style="-fx-selection-bar: lightgrey;"
+									VBox.vgrow="ALWAYS" fx:id="tableClassifica">
+									<columns>
+										<TableColumn fx:id="colPosizione"
+											style="-fx-alignment: CENTER;" text="#" />
+										<TableColumn fx:id="colNome"
+											style="-fx-alignment: CENTER;" text="Nome" />
+										<TableColumn fx:id="colCognome"
+											style="-fx-alignment: CENTER;" text="Cognome" />
+										<TableColumn fx:id="colGare"
+											style="-fx-alignment: CENTER;" text="Gare" />
+										<TableColumn fx:id="colPunti"
+											style="-fx-alignment: CENTER;" text="Punti" />
+									</columns>
+									<columnResizePolicy>
+										<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+									</columnResizePolicy>
+								</TableView>
+							</children>
+						</VBox>
+					</StackPane>
+					<StackPane alignment="CENTER" HBox.hgrow="ALWAYS">
+						<VBox style="-fx-padding: 16;" VBox.vgrow="ALWAYS">
+							<children>
+								<StackPane alignment="CENTER" HBox.hgrow="ALWAYS">
+									<Label text="GARE">
+										<font>
+											<Font size="34.0" />
+										</font>
+									</Label>
+								</StackPane>
+								<TableView style="-fx-selection-bar: lightgrey;"
+									VBox.vgrow="ALWAYS" fx:id="tableGare">
+									<columns>
+										<TableColumn fx:id="colData"
+											style="-fx-alignment: CENTER;" text="Data" />
+										<TableColumn fx:id="colPartecipanti"
+											style="-fx-alignment: CENTER;" text="Partecipanti" />
+										<TableColumn style="-fx-alignment: CENTER;"
+											text="Vincitore">
+											<columns>
+												<TableColumn fx:id="colNomeVincitore"
+													style="-fx-alignment: CENTER;" text="Nome" />
+												<TableColumn fx:id="colCognomeVincitore"
+													style="-fx-alignment: CENTER;" text="Cognome" />
+											</columns>
+										</TableColumn>
+										<TableColumn fx:id="colDettagli"
+											style="-fx-alignment: CENTER;" text="Dettagli" />
+									</columns>
+									<columnResizePolicy>
+										<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+									</columnResizePolicy>
+								</TableView>
+							</children>
+						</VBox>
+					</StackPane>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</VBox>

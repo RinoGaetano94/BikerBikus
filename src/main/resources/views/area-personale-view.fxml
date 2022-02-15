@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" style="-fx-background-color: #d2f2cd;"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox alignment="CENTER" maxHeight="60" minHeight="60"
+			spacing="8" style="-fx-padding: 8px; -fx-background-color: #95CA74;">
+			<children>
+				<Button fx:id="btnBack"
+					style="-fx-cursor: hand; -fx-background-color: transparent;">
+					<tooltip>
+						<Tooltip text="Home" />
+					</tooltip>
+					<graphic>
+						<ImageView fitHeight="50.0" preserveRatio="true">
+							<Image url="@../images/home.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+				<Label text="Area Personale">
+					<font>
+						<Font size="34.0" />
+					</font>
+				</Label>
+				<HBox  maxWidth="Infinity" alignment="CENTER_LEFT"
+					style="-fx-background-radius: 4; -fx-padding: 0 4; -fx-background-color: #6aaf3f;" HBox.hgrow="ALWAYS">
+					<Label style="-fx-padding: 0 16 0 0;" fx:id="lblUserName">
+						<font>
+							<Font size="34" />
+						</font>
+					</Label>
+					<Label style="-fx-background-radius: 4; -fx-padding: 0 8; -fx-background-color: #d8da94;" fx:id="lblTipoUtente">
+						<font>
+							<Font size="16" />
+						</font>
+					</Label>
+				</HBox>
+			</children>
+		</HBox>
+		<VBox VBox.vgrow="ALWAYS" spacing="8">
+			<children>
+				<HBox style="-fx-padding: 16;" alignment="CENTER">
+					<VBox>
+						<GridPane vgap="8" hgap="8">
+							<Text text="I tuoi dati" GridPane.columnIndex="0"
+								GridPane.rowIndex="0" GridPane.columnSpan="2">
+								<font>
+									<Font size="34" />
+								</font>
+							</Text>
+							<Label style="-fx-font-weight: bold" text="Nome:"
+								GridPane.columnIndex="0" GridPane.rowIndex="1">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<Text fx:id="txtNome" GridPane.columnIndex="1"
+								GridPane.rowIndex="1">
+								<font>
+									<Font size="16" />
+								</font>
+							</Text>
+							<Label style="-fx-font-weight: bold" text="Cognome:"
+								GridPane.columnIndex="0" GridPane.rowIndex="2">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<Text fx:id="txtCognome" GridPane.columnIndex="1"
+								GridPane.rowIndex="2">
+								<font>
+									<Font size="16" />
+								</font>
+							</Text>
+							<Label style="-fx-font-weight: bold" text="Email:"
+								GridPane.columnIndex="0" GridPane.rowIndex="3">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<Text fx:id="txtEmail" GridPane.columnIndex="1"
+								GridPane.rowIndex="3">
+								<font>
+									<Font size="16" />
+								</font>
+							</Text>
+							<Label style="-fx-font-weight: bold" text="Tipo Utente:"
+								GridPane.columnIndex="0" GridPane.rowIndex="4">
+								<font>
+									<Font size="16" />
+								</font>
+							</Label>
+							<Text fx:id="txtTipoUtente" GridPane.columnIndex="1"
+								GridPane.rowIndex="4">
+								<font>
+									<Font size="16" />
+								</font>
+							</Text>
+							<Text text="Le tue prenotazioni" GridPane.columnIndex="0"
+								GridPane.rowIndex="5" GridPane.columnSpan="2">
+								<font>
+									<Font size="34" />
+								</font>
+							</Text>
+							<TabPane styleClass="floating" prefWidth="600"
+								style="-fx-color: #95ca74;" fx:id="tabPanePrenotazioni"
+								tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="0"
+								GridPane.rowIndex="6" GridPane.columnSpan="2">
+								<tabs>
+									<Tab fx:id="tabLezioni" text="Lezioni">
+										<TableView style="-fx-selection-bar: lightgrey;"
+											fx:id="tableLezioni">
+											<columns>
+												<TableColumn fx:id="colGiornoLezione"
+													style="-fx-alignment: CENTER;" text="Giorno" />
+												<TableColumn fx:id="colOrarioLezione"
+													style="-fx-alignment: CENTER;" text="Orario" />
+												<TableColumn fx:id="colTipoLezione"
+													style="-fx-alignment: CENTER;" text="Tipo" />
+												<TableColumn fx:id="colPrivataLezione"
+													style="-fx-alignment: CENTER;" text="Privata" />
+												<TableColumn fx:id="colMaestroLezione"
+													style="-fx-alignment: CENTER;" text="Maestro" />
+												<TableColumn fx:id="colDisdiciLezione"
+													style="-fx-alignment: CENTER;" text="Disdici" />
+											</columns>
+											<columnResizePolicy>
+												<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+											</columnResizePolicy>
+										</TableView>
+									</Tab>
+									<Tab fx:id="tabGare" text="Gare">
+										<TableView style="-fx-selection-bar: lightgrey;"
+											fx:id="tableGare">
+											<columns>
+												<TableColumn fx:id="colGiornoGara"
+													style="-fx-alignment: CENTER;" text="Giorno" />
+												<TableColumn fx:id="colOrarioGara"
+													style="-fx-alignment: CENTER;" text="Orario" />
+												<TableColumn fx:id="colCampionatoStagioneGara"
+													style="-fx-alignment: CENTER;" text="Campionato">
+													<columns>
+														<TableColumn fx:id="colCampionatoGara"
+															style="-fx-alignment: CENTER;" text="Nome" />
+														<TableColumn fx:id="colStagioneGara"
+															style="-fx-alignment: CENTER;" text="Stagione" />
+													</columns>
+												</TableColumn>
+											</columns>
+											<columnResizePolicy>
+												<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+											</columnResizePolicy>
+										</TableView>
+									</Tab>
+									<Tab fx:id="tabEscursioni" text="Escursioni">
+										<TableView style="-fx-selection-bar: lightgrey;"
+											fx:id="tableEscursioni">
+											<columns>
+												<TableColumn fx:id="colGiornoEscursione"
+													style="-fx-alignment: CENTER;" text="Giorno" />
+												<TableColumn fx:id="colOrarioEscursione"
+													style="-fx-alignment: CENTER;" text="Orario" />
+												<TableColumn fx:id="colLuogoEscursione"
+													style="-fx-alignment: CENTER;" text="Luogo" />
+												<TableColumn fx:id="colAccompagnatoreEscursione"
+													style="-fx-alignment: CENTER;" text="Accompagnatore" />
+												<TableColumn fx:id="colDisdiciEscursione"
+													style="-fx-alignment: CENTER;" text="Disdici" />
+											</columns>
+											<columnResizePolicy>
+												<TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+											</columnResizePolicy>
+										</TableView>
+									</Tab>
+								</tabs>
+							</TabPane>
+						</GridPane>
+					</VBox>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</VBox>
