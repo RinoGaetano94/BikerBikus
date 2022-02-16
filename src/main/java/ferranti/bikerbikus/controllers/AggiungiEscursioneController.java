@@ -70,6 +70,7 @@ public class AggiungiEscursioneController {
 				+ Utils.uppercase(UserData.getInstance().getUser().getCognome()));
 		lblTipoUtente.setText(UserData.getInstance().getUser().getTipoUtente().getNome());
 		dpGiorno.setDayCellFactory(picker -> new DateCell() {
+			@Override
 			public void updateItem(LocalDate date, boolean empty) {
 				super.updateItem(date, empty);
 				LocalDate today = LocalDate.now();
