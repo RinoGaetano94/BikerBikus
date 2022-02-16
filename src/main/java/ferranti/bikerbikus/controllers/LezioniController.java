@@ -102,7 +102,8 @@ public class LezioniController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : Utils.formatTime(item.getHour(), item.getMinute()));
+				if (item != null)
+					setText(Utils.formatTime(item.getHour(), item.getMinute()));
 			}
 		});
 		colOrario.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -110,7 +111,8 @@ public class LezioniController {
 			@Override
 			protected void updateItem(TipoLezione item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome());
+				if (item != null)
+					setText(item.getNome());
 			}
 		});
 		colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
@@ -118,7 +120,8 @@ public class LezioniController {
 			@Override
 			protected void updateItem(Boolean item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item ? "Si" : "No");
+				if (item != null)
+					setText(item ? "Si" : "No");
 			}
 		});
 		colPrivata.setCellValueFactory(new PropertyValueFactory<>("privata"));
@@ -126,7 +129,8 @@ public class LezioniController {
 			@Override
 			protected void updateItem(Utente item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome() + " " + item.getCognome());
+				if (item != null)
+					setText(item.getNome() + " " + item.getCognome());
 			}
 		});
 		colMaestro.setCellValueFactory(new PropertyValueFactory<>("maestro"));

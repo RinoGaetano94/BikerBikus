@@ -125,7 +125,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+				if (item != null)
+					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 			}
 		});
 		colGiornoLezione.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -133,7 +134,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : Utils.formatTime(item.getHour(), item.getMinute()));
+				if (item != null)
+					setText(Utils.formatTime(item.getHour(), item.getMinute()));
 			}
 		});
 		colOrarioLezione.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -141,7 +143,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(TipoLezione item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome());
+				if (item != null)
+					setText(item.getNome());
 			}
 		});
 		colTipoLezione.setCellValueFactory(new PropertyValueFactory<>("tipo"));
@@ -149,7 +152,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(Boolean item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item ? "Si" : "No");
+				if (item != null)
+					setText(item ? "Si" : "No");
 			}
 		});
 		colPrivataLezione.setCellValueFactory(new PropertyValueFactory<>("privata"));
@@ -157,7 +161,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(Utente item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome() + " " + item.getCognome());
+				if (item != null)
+					setText(item.getNome() + " " + item.getCognome());
 			}
 		});
 		colMaestroLezione.setCellValueFactory(new PropertyValueFactory<>("maestro"));
@@ -171,7 +176,8 @@ public class AreaPersonaleController {
 				if (getTableRow() != null && getTableRow().getItem() != null) {
 					btnDisdiciLezione.setDisable(getTableRow().getItem().getData().isBefore(LocalDateTime.now()));
 				}
-				setGraphic(item == null ? null : btnDisdiciLezione);
+				if (item != null)
+					setGraphic(btnDisdiciLezione);
 			}
 		});
 		colDisdiciLezione.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -180,7 +186,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+				if (item != null)
+					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 			}
 		});
 		colGiornoGara.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -188,7 +195,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : Utils.formatTime(item.getHour(), item.getMinute()));
+				if (item != null)
+					setText(Utils.formatTime(item.getHour(), item.getMinute()));
 			}
 		});
 		colOrarioGara.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -196,7 +204,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(Stagione item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getCampionato().getNome());
+				if (item != null)
+					setText(item.getCampionato().getNome());
 			}
 		});
 		colCampionatoGara
@@ -206,7 +215,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(Stagione item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome());
+				if (item != null)
+					setText(item.getNome());
 			}
 		});
 		colStagioneGara.setCellValueFactory(new PropertyValueFactory<>("stagione"));
@@ -215,7 +225,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+				if (item != null)
+					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
 			}
 		});
 		colGiornoEscursione.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -223,7 +234,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : Utils.formatTime(item.getHour(), item.getMinute()));
+				if (item != null)
+					setText(Utils.formatTime(item.getHour(), item.getMinute()));
 			}
 		});
 		colOrarioEscursione.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -232,7 +244,8 @@ public class AreaPersonaleController {
 			@Override
 			protected void updateItem(Utente item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.getNome() + " " + item.getCognome());
+				if (item != null)
+					setText(item.getNome() + " " + item.getCognome());
 			}
 		});
 		colAccompagnatoreEscursione.setCellValueFactory(new PropertyValueFactory<>("accompagnatore"));
@@ -246,7 +259,8 @@ public class AreaPersonaleController {
 				if (getTableRow() != null && getTableRow().getItem() != null) {
 					btnDisdiciEscursione.setDisable(getTableRow().getItem().getData().isBefore(LocalDateTime.now()));
 				}
-				setGraphic(item == null ? null : btnDisdiciEscursione);
+				if (item != null)
+					setGraphic(btnDisdiciEscursione);
 			}
 		});
 		colDisdiciEscursione.setCellValueFactory(new PropertyValueFactory<>("id"));
