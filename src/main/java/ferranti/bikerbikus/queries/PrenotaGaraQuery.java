@@ -9,6 +9,11 @@ import java.sql.*;
 import java.time.LocalDateTime;
 
 public class PrenotaGaraQuery {
+
+	private PrenotaGaraQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean execute(int idUtente, int idGara) {
 		String sql = "INSERT INTO PrenotazioneGara VALUES(?,?,null,?);";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);

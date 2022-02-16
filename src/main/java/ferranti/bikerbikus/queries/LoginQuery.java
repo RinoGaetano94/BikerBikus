@@ -12,6 +12,10 @@ import java.sql.*;
 
 public class LoginQuery {
 
+	private LoginQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean execute(String email, String password) {
 		String sql = "SELECT u.*, tu.Nome FROM Utente u LEFT JOIN TipoUtente tu ON tu.Id = u.TipoUtente WHERE email = ? AND password = ?;";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);

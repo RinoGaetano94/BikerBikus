@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AreaPersonaleQuery {
+
+	private AreaPersonaleQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static List<Lezione> findLezioni(int idUtente) {
 		String sql = "SELECT l.Id, l.Data, l.Privata, u.Nome AS NomeMaestro, u.Cognome AS CognomeMaestro, tl.Id AS TipoLezioneId, tl.Nome AS TipoLezioneNome FROM Lezione l LEFT JOIN Utente u ON u.Id = l.Maestro LEFT JOIN TipoLezione tl ON tl.Id = l.TipoLezione WHERE (?, l.Id) IN (SELECT pl.Utente, pl.Lezione FROM PrenotazioneLezione pl) ORDER BY l.Data DESC";
 		List<Lezione> result = new ArrayList<>();

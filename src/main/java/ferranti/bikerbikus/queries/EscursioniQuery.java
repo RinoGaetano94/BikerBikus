@@ -13,6 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EscursioniQuery {
+
+	private EscursioniQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static List<Escursione> execute(YearMonth yearMonth, int userId) {
 		String sql = "SELECT e.Id, e.Data, e.Luogo, u.Nome AS NomeAccompagnatore, u.Cognome AS CognomeAccompagnatore FROM Escursione e LEFT JOIN Utente u ON u.Id = e.Accompagnatore WHERE MONTH(Data) = ? AND YEAR(Data) = ? AND (?, e.Id) NOT IN (SELECT pe.Utente, pe.Escursione FROM PrenotazioneEscursione pe) ORDER BY e.Data";
 		List<Escursione> result = new ArrayList<>();

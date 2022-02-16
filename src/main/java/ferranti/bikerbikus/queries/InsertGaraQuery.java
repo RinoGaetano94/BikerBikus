@@ -9,6 +9,11 @@ import javafx.scene.control.Alert.AlertType;
 import java.sql.*;
 
 public class InsertGaraQuery {
+
+	private InsertGaraQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean execute(Gara gara) {
 		String sql = "INSERT INTO Gara(Id, Stagione, Data) VALUES ((SELECT MAX(Id) + 1 FROM Gara g2),?,?);";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);

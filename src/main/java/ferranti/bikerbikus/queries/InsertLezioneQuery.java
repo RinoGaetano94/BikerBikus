@@ -9,6 +9,11 @@ import javafx.scene.control.Alert.AlertType;
 import java.sql.*;
 
 public class InsertLezioneQuery {
+
+	private InsertLezioneQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean execute(Lezione lezione) {
 		String sql = "INSERT INTO Lezione(Id, Data, Maestro, TipoLezione, Privata) VALUES ((SELECT MAX(Id) + 1 FROM Lezione l2),?,?,?,?);";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);

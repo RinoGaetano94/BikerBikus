@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CampionatiQuery {
+
+	private CampionatiQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static List<Stagione> findAll() {
 		List<Stagione> result = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);

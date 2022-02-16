@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StagioneQuery {
+
+	private StagioneQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static List<GaraExtended> execute(int idStagione) {
 		String sql = "SELECT g.*, (SELECT COUNT(*) FROM PrenotazioneGara WHERE Gara = g.Id) Partecipanti, u.Nome AS NomeVincitore, u.Cognome AS CognomeVincitore FROM Gara g LEFT JOIN Utente u ON u.Id = (SELECT Utente FROM PrenotazioneGara WHERE Gara = g.Id AND Posizione = 1) WHERE Stagione = ? ORDER BY Data";
 		List<GaraExtended> result = new ArrayList<>();

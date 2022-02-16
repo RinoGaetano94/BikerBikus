@@ -11,6 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TipiLezioneQuery {
+
+	private TipiLezioneQuery() {
+		throw new IllegalStateException("Utility class");
+	}
+
     public static List<TipoLezione> execute() {
         List<TipoLezione> result = new ArrayList<>();
         try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
