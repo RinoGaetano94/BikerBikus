@@ -119,9 +119,8 @@ public class AreaPersonaleController {
 			tabPanePrenotazioni
 					.setTabMaxWidth(tabPanePrenotazioni.getWidth() / tabPanePrenotazioni.getTabs().size() - 20);
 		});
-		tabPanePrenotazioni.getSelectionModel().selectedItemProperty().addListener((ov, oldTab, newTab) -> {
-			loadPrenotazioni();
-		});
+		tabPanePrenotazioni.getSelectionModel().selectedItemProperty()
+				.addListener((ov, oldTab, newTab) -> loadPrenotazioni());
 		colGiornoLezione.setCellFactory(param -> new TableCell<>() {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {

@@ -68,7 +68,7 @@ public class AggiungiGaraController {
 		cmbOrario.setItems(orari);
 		loadStagioni();
 		cmbStagione.setItems(stagioni);
-		cmbStagione.setOnAction((event) -> {
+		cmbStagione.setOnAction(event -> {
 			Stagione stagioneSelezionata = cmbStagione.getSelectionModel().getSelectedItem();
 			restrictDatePicker(dpGiorno, stagioneSelezionata.getDataInizio(), stagioneSelezionata.getDataFine());
 			dpGiorno.setDisable(false);
