@@ -288,16 +288,16 @@ public class AreaPersonaleController {
 	private void disdiciLezione(int idLezione) {
 		Optional<ButtonType> option = new Alert(AlertType.CONFIRMATION, "Confermi di voler annullare la prenotazione?",
 				ButtonType.NO, ButtonType.YES).showAndWait();
-		if (option.get() == ButtonType.YES) {
+		if (option.isPresent() && option.get() == ButtonType.YES) {
 			AreaPersonaleQuery.disdiciLezione(UserData.getInstance().getUser().getId(), idLezione);
 			loadPrenotazioni();
 		}
 	}
-	
+
 	private void disdiciEscursione(int idEscursione) {
 		Optional<ButtonType> option = new Alert(AlertType.CONFIRMATION, "Confermi di voler annullare la prenotazione?",
 				ButtonType.NO, ButtonType.YES).showAndWait();
-		if (option.get() == ButtonType.YES) {
+		if (option.isPresent() && option.get() == ButtonType.YES) {
 			AreaPersonaleQuery.disdiciEscursione(UserData.getInstance().getUser().getId(), idEscursione);
 			loadPrenotazioni();
 		}
