@@ -1,5 +1,6 @@
 package ferranti.bikerbikus.controllers;
 
+import ferranti.bikerbikus.utils.Constants;
 import ferranti.bikerbikus.utils.Utils;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -126,7 +127,7 @@ public class AreaPersonaleController {
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
 				if (item != null)
-					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+					setText(item.format(DateTimeFormatter.ofPattern(Constants.DEFAULT_DATE_PATTERN)));
 			}
 		});
 		colGiornoLezione.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -187,7 +188,7 @@ public class AreaPersonaleController {
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
 				if (item != null)
-					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+					setText(item.format(DateTimeFormatter.ofPattern(Constants.DEFAULT_DATE_PATTERN)));
 			}
 		});
 		colGiornoGara.setCellValueFactory(new PropertyValueFactory<>("data"));
@@ -226,7 +227,7 @@ public class AreaPersonaleController {
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
 				if (item != null)
-					setText(item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+					setText(item.format(DateTimeFormatter.ofPattern(Constants.DEFAULT_DATE_PATTERN)));
 			}
 		});
 		colGiornoEscursione.setCellValueFactory(new PropertyValueFactory<>("data"));

@@ -8,6 +8,8 @@ public final class Constants {
 	public static final String URL = "jdbc:mysql://remotemysql.com:3306/xVL9DG6KrL";
     public static final String USERNAME = "xVL9DG6KrL";
     public static final String PASSWORD = "MEC5EdpePx";
+    
+    public static final String DEFAULT_DATE_PATTERN = "dd-MM-yyyy";
 
 	private Constants() {
 	}

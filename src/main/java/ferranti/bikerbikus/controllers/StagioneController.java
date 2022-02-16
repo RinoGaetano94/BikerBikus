@@ -1,6 +1,7 @@
 package ferranti.bikerbikus.controllers;
 
 import ferranti.bikerbikus.data.UserData;
+import ferranti.bikerbikus.utils.Constants;
 import ferranti.bikerbikus.utils.Utils;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -75,7 +76,7 @@ public class StagioneController {
 			@Override
 			protected void updateItem(LocalDateTime item, boolean empty) {
 				super.updateItem(item, empty);
-				setText(item == null ? "" : item.format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+				setText(item == null ? "" : item.format(DateTimeFormatter.ofPattern(Constants.DEFAULT_DATE_PATTERN)));
 			}
 		});
 		colData.setCellValueFactory(new PropertyValueFactory<>("data"));
