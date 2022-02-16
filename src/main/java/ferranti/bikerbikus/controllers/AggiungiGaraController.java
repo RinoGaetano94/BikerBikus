@@ -84,10 +84,7 @@ public class AggiungiGaraController {
 					@Override
 					public void updateItem(LocalDate item, boolean empty) {
 						super.updateItem(item, empty);
-						if (item.isBefore(minDate)) {
-							setDisable(true);
-							setStyle("-fx-background-color: #ffc0cb;");
-						} else if (item.isAfter(maxDate)) {
+						if (item.isBefore(minDate) || item.isAfter(maxDate)) {
 							setDisable(true);
 							setStyle("-fx-background-color: #ffc0cb;");
 						}
