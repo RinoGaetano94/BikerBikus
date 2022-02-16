@@ -18,9 +18,10 @@ public class CampionatiQuery {
 	}
 
 	public static List<Stagione> findAll() {
+		String sql = "SELECT s.*, c.Nome AS NomeCampionato FROM Stagione s LEFT JOIN Campionato c ON c.Id = s.Campionato ORDER BY c.Id, s.dataInizio";
 		List<Stagione> result = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
-				PreparedStatement preparedStatement = createFindAllStatement(connection);
+				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				ResultSet resultSet = preparedStatement.executeQuery()) {
 			while (resultSet.next()) {
 				Stagione stagione = new Stagione();
@@ -38,18 +39,13 @@ public class CampionatiQuery {
 			new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
 		}
 		return result;
-	}
-
-	private static PreparedStatement createFindAllStatement(Connection connection) throws SQLException {
-		String sql = "SELECT s.*, c.Nome AS NomeCampionato FROM Stagione s LEFT JOIN Campionato c ON c.Id = s.Campionato ORDER BY c.Id, s.dataInizio";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		return ps;
 	}
 
 	public static List<Stagione> findCampionatiAperti() {
+		String sql = "SELECT s.*, c.Nome AS NomeCampionato FROM Stagione s LEFT JOIN Campionato c ON c.Id = s.Campionato WHERE s.DataFine > CURDATE() ORDER BY c.Id";
 		List<Stagione> result = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
-				PreparedStatement preparedStatement = createFindCampionatiApertiStatement(connection);
+				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				ResultSet resultSet = preparedStatement.executeQuery()) {
 			while (resultSet.next()) {
 				Stagione stagione = new Stagione();
@@ -67,11 +63,5 @@ public class CampionatiQuery {
 			new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
 		}
 		return result;
-	}
-
-	private static PreparedStatement createFindCampionatiApertiStatement(Connection connection) throws SQLException {
-		String sql = "SELECT s.*, c.Nome AS NomeCampionato FROM Stagione s LEFT JOIN Campionato c ON c.Id = s.Campionato WHERE s.DataFine > CURDATE() ORDER BY c.Id";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		return ps;
 	}
 }

@@ -18,9 +18,10 @@ public class UtentiQuery {
 	}
 
 	public static List<Utente> findMaestri() {
+		String sql = "SELECT u.*, tu.Nome FROM Utente u LEFT JOIN TipoUtente tu ON tu.Id = u.TipoUtente WHERE u.TipoUtente IN (2,3);";
 		List<Utente> result = new ArrayList<>();
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
-				PreparedStatement preparedStatement = createFindMaestriStatement(connection);
+				PreparedStatement preparedStatement = connection.prepareStatement(sql);
 				ResultSet resultSet = preparedStatement.executeQuery()) {
 			while (resultSet.next()) {
 				Utente utente = new Utente();
@@ -39,11 +40,5 @@ public class UtentiQuery {
 			new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
 		}
 		return result;
-	}
-
-	private static PreparedStatement createFindMaestriStatement(Connection connection) throws SQLException {
-		String sql = "SELECT u.*, tu.Nome FROM Utente u LEFT JOIN TipoUtente tu ON tu.Id = u.TipoUtente WHERE u.TipoUtente IN (2,3);";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		return ps;
 	}
 }
