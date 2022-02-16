@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" style="-fx-background-color: D2F2CD;"
+	spacing="16.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<Label fx:id="lblTitle" alignment="CENTER" text="Bikus">
+			<font>
+				<Font size="64.0" />
+			</font>
+		</Label>
+		<TextField fx:id="txtEmail" minHeight="40" maxWidth="300"
+			promptText="Email" text="g.ferranti@gmail.com" />
+		<PasswordField fx:id="txtPassword" minHeight="40"
+			maxWidth="300" promptText="Password" text="1234" />
+		<Button fx:id="btnLogin" mnemonicParsing="false" minHeight="40"
+			maxWidth="300" text="Login" />
+		<Label fx:id="lblForgotPassword" text="Forgot password?" />
+		<Hyperlink fx:id="linkRegister" text="Register" />
+	</children>
+</VBox>

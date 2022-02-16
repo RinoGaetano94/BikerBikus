@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" style="-fx-background-color: #d2f2cd;"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox alignment="CENTER" maxHeight="60" minHeight="60"
+			spacing="8" style="-fx-padding: 8px; -fx-background-color: #95CA74;">
+			<children>
+				<Label text="Home">
+					<font>
+						<Font size="34.0" />
+					</font>
+				</Label>
+				<HBox  maxWidth="Infinity" alignment="CENTER_LEFT"
+					style="-fx-background-radius: 4; -fx-padding: 0 4; -fx-background-color: #6aaf3f;" HBox.hgrow="ALWAYS">
+					<Label style="-fx-padding: 0 16 0 0;" fx:id="lblUserName">
+						<font>
+							<Font size="34" />
+						</font>
+					</Label>
+					<Label style="-fx-background-radius: 4; -fx-padding: 0 8; -fx-background-color: #d8da94;" fx:id="lblTipoUtente">
+						<font>
+							<Font size="16" />
+						</font>
+					</Label>
+				</HBox>
+				<Button fx:id="btnProfile"
+					style="-fx-cursor: hand; -fx-background-color: transparent;">
+					<tooltip>
+						<Tooltip text="Area Personale" />
+					</tooltip>
+					<graphic>
+						<ImageView fitHeight="50.0" preserveRatio="true">
+							<Image url="@../images/profile.png" />
+						</ImageView>
+					</graphic>
+				</Button>
+			</children>
+		</HBox>
+		<VBox VBox.vgrow="ALWAYS" spacing="8">
+			<children>
+				<HBox VBox.vgrow="ALWAYS" alignment="CENTER">
+					<StackPane HBox.hgrow="ALWAYS" alignment="CENTER">
+						<Button fx:id="btnLezioni" prefHeight="110.0"
+							prefWidth="240.0" text="Lezioni" textAlignment="CENTER">
+							<font>
+								<Font size="32.0" />
+							</font>
+						</Button>
+					</StackPane>
+					<StackPane HBox.hgrow="ALWAYS" alignment="CENTER">
+						<Button fx:id="btnCampionati" prefHeight="110.0"
+							prefWidth="240.0" text="Campionati" textAlignment="CENTER">
+							<font>
+								<Font size="32.0" />
+							</font>
+						</Button>
+					</StackPane>
+				</HBox>
+				<HBox VBox.vgrow="ALWAYS" alignment="CENTER">
+					<StackPane HBox.hgrow="ALWAYS" alignment="CENTER">
+						<Button fx:id="btnGare" prefHeight="110.0"
+							prefWidth="240.0" text="Gare" textAlignment="CENTER">
+							<font>
+								<Font size="32.0" />
+							</font>
+						</Button>
+					</StackPane>
+					<StackPane HBox.hgrow="ALWAYS" alignment="CENTER">
+						<Button fx:id="btnEscursioni" prefHeight="110.0"
+							prefWidth="240.0" text="Escursioni" textAlignment="CENTER">
+							<font>
+								<Font size="32.0" />
+							</font>
+						</Button>
+					</StackPane>
+				</HBox>
+			</children>
+		</VBox>
+	</children>
+</VBox>
