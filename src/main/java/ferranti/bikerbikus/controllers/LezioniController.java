@@ -121,7 +121,7 @@ public class LezioniController {
 			protected void updateItem(Boolean item, boolean empty) {
 				super.updateItem(item, empty);
 				if (item != null)
-					setText(item ? "Si" : "No");
+					setText(Boolean.TRUE.equals(item) ? "Si" : "No");
 			}
 		});
 		colPrivata.setCellValueFactory(new PropertyValueFactory<>("privata"));

@@ -154,7 +154,7 @@ public class AreaPersonaleController {
 			protected void updateItem(Boolean item, boolean empty) {
 				super.updateItem(item, empty);
 				if (item != null)
-					setText(item ? "Si" : "No");
+					setText(Boolean.TRUE.equals(item) ? "Si" : "No");
 			}
 		});
 		colPrivataLezione.setCellValueFactory(new PropertyValueFactory<>("privata"));
