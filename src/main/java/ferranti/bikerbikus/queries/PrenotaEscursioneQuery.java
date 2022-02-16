@@ -10,23 +10,17 @@ import java.time.LocalDateTime;
 
 public class PrenotaEscursioneQuery {
 	public static boolean execute(int idUtente, int idEscursione) {
+		String sql = "INSERT INTO PrenotazioneEscursione VALUES(?,?,?);";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
-				PreparedStatement preparedStatement = createStatement(connection, idUtente, idEscursione)) {
+				PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+			preparedStatement.setInt(1, idUtente);
+			preparedStatement.setInt(2, idEscursione);
+			preparedStatement.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 			preparedStatement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
 			new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
 		}
 		return false;
-	}
-
-	private static PreparedStatement createStatement(Connection connection, int idUtente, int idEscursione)
-			throws SQLException {
-		String sql = "INSERT INTO PrenotazioneEscursione VALUES(?,?,?);";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setInt(1, idUtente);
-		ps.setInt(2, idEscursione);
-		ps.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-		return ps;
 	}
 }

@@ -10,23 +10,18 @@ import java.sql.*;
 
 public class InsertLezioneQuery {
 	public static boolean execute(Lezione lezione) {
+		String sql = "INSERT INTO Lezione(Id, Data, Maestro, TipoLezione, Privata) VALUES ((SELECT MAX(Id) + 1 FROM Lezione l2),?,?,?,?);";
 		try (Connection connection = DriverManager.getConnection(Constants.URL, Constants.USERNAME, Constants.PASSWORD);
-				PreparedStatement preparedStatement = createStatement(connection, lezione)) {
+				PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+			preparedStatement.setTimestamp(1, Timestamp.valueOf(lezione.getData()));
+			preparedStatement.setInt(2, lezione.getMaestro().getId());
+			preparedStatement.setInt(3, lezione.getTipo().getId());
+			preparedStatement.setBoolean(4, lezione.isPrivata());
 			preparedStatement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
 			new Alert(AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
 		}
 		return false;
-	}
-
-	private static PreparedStatement createStatement(Connection connection, Lezione lezione) throws SQLException {
-		String sql = "INSERT INTO Lezione(Id, Data, Maestro, TipoLezione, Privata) VALUES ((SELECT MAX(Id) + 1 FROM Lezione l2),?,?,?,?);";
-		PreparedStatement ps = connection.prepareStatement(sql);
-		ps.setTimestamp(1, Timestamp.valueOf(lezione.getData()));
-		ps.setInt(2, lezione.getMaestro().getId());
-		ps.setInt(3, lezione.getTipo().getId());
-		ps.setBoolean(4, lezione.isPrivata());
-		return ps;
 	}
 }
