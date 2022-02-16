@@ -66,9 +66,6 @@ public class LezioniController {
 	@FXML
 	TableColumn<Lezione, Integer> colPrenotazione;
 
-	public LezioniController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/lezioni-view.fxml"));

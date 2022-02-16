@@ -35,9 +35,6 @@ public class HomeController {
 	@FXML
 	Button btnEscursioni;
 
-	public HomeController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/home-view.fxml"));

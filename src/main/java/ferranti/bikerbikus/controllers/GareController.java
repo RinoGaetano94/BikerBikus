@@ -61,9 +61,6 @@ public class GareController {
 	@FXML
 	TableColumn<Gara, Integer> colPrenotazione;
 
-	public GareController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/gare-view.fxml"));

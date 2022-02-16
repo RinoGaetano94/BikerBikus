@@ -29,8 +29,6 @@ public class LoginController {
     @FXML
     Hyperlink linkRegister;
 
-    public LoginController() {}
-
     public void showScene(Stage stage) {
         this.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/login-view.fxml"));

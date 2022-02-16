@@ -52,9 +52,6 @@ public class AggiungiEscursioneController {
 	@FXML
 	Button btnConferma;
 
-	public AggiungiEscursioneController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/aggiungi-escursione-view.fxml"));

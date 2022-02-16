@@ -50,9 +50,6 @@ public class AggiungiGaraController {
 	@FXML
 	Button btnConferma;
 
-	public AggiungiGaraController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/aggiungi-gara-view.fxml"));

@@ -63,9 +63,6 @@ public class EscursioniController {
 	@FXML
 	TableColumn<Escursione, Integer> colPrenotazione;
 
-	public EscursioniController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/escursioni-view.fxml"));

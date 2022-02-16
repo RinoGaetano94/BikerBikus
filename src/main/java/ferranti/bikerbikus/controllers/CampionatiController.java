@@ -48,9 +48,6 @@ public class CampionatiController {
 	@FXML
 	TableColumn<Stagione, Stagione> colDettagli;
 
-	public CampionatiController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/campionati-view.fxml"));

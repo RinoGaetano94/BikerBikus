@@ -57,9 +57,6 @@ public class AggiungiLezioneController {
 	@FXML
 	Button btnConferma;
 
-	public AggiungiLezioneController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/aggiungi-lezione-view.fxml"));

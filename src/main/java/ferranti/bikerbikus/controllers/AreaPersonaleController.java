@@ -95,9 +95,6 @@ public class AreaPersonaleController {
 	@FXML
 	TableColumn<Escursione, Integer> colDisdiciEscursione;
 
-	public AreaPersonaleController() {
-	}
-
 	public void showScene(Stage stage) {
 		this.stage = stage;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/area-personale-view.fxml"));
